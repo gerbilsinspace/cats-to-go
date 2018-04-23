@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='cat-container'>
     <md-card v-for="cat in cats" :key="cat.id" v-if='cat.images.original.url'>
       <md-card-media-cover md-solid>
         <md-card-media md-ratio="1:1">
@@ -34,8 +34,18 @@ export default {
           return response.json()
         }).then(function (catsJson) {
           current.cats = catsJson.data
-        });
+        }).catch(error => {
+          console.log(error)
+        })
     }
   }
 }
 </script>
+
+<style>
+  .cat-container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+  }
+</style>
