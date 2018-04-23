@@ -29,7 +29,7 @@ export default {
   methods: {
     getCats () {
       const current = this
-      fetch('https://api.giphy.com/v1/gifs/search?api_key=xWw0i2Ch0K5rqrUkBc7sCOAS4OKcILIc&q=cats&limit=25&offset=0&rating=G&lang=en')
+      fetch('https://api.giphy.com/v1/gifs/search?api_key=xWw0i2Ch0K5rqrUkBc7sCOAS4OKcILIc&q=kitten&limit=25&offset=0&rating=G&lang=en')
         .then(function (response) {
           return response.json()
         }).then(function (catsJson) {
