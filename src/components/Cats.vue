@@ -1,8 +1,8 @@
 <template>
   <div>
-    <md-card v-for="cat in cats" :key="cat.title" v-if='cat.images.original.url'>
+    <md-card v-for="cat in cats" :key="cat.id" v-if='cat.images.original.url'>
       <md-card-media-cover md-solid>
-        <md-card-media md-ratio="4:1">
+        <md-card-media md-ratio="4:3">
           <img :src="cat.images.original.url" :alt="cat.title">
         </md-card-media>
 
