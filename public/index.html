@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="shortcut icon" href="<%= webpackConfig.output.publicPath %>favicon.ico">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
     <title>pwa-cats</title>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but pwa-cats doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('<%= htmlWebpackPlugin.files.publicPath %>service-worker.js');
+      }
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
