@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vue/babel-preset-app": "git+https://git@github.com/gerbilsinspace/vue-cli.git",
+    "idb": "^2.1.1",
     "vue": "^2.5.13",
     "vue-material": "^1.0.0-beta-7"
   },
