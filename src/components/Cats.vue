@@ -1,11 +1,13 @@
 <template>
   <div class='cat-container'>
+    <md-card v-if='error'>
+     <h1>{{error}}</h1>
+    </md-card>
     <md-card v-for="cat in cats" :key="cat.id" v-if='cat.images.original.url'>
       <md-card-media-cover md-solid>
         <md-card-media>
           <img :src="cat.images.fixed_width.url" :alt="cat.title">
         </md-card-media>
-
 
         <md-card-area>
           <md-card-header style="min-height: 50px">
@@ -21,7 +23,8 @@
 export default {
   name: 'cats',
   data: () => ({
-    cats: []
+    cats: [],
+    error: false
   }),
   created () {
     this.getCats()
@@ -34,8 +37,8 @@ export default {
           return response.json()
         }).then(function (catsJson) {
           current.cats = catsJson.data
-        }).catch(error => {
-          console.log(error)
+        }).catch(() => {
+          current.error = 'You appear to be offline, no cats for you...'
         })
     }
   }
@@ -45,7 +48,7 @@ export default {
 <style>
   .cat-container {
     margin: 0 auto;
-    width: 80%;
-    max-width: 600px;
+    width: 70%;
+    max-width: 550px;
   }
 </style>
