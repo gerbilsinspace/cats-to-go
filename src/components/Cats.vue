@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { saveData, getData } from '../utils/indexed-db.js';
+
 export default {
   name: 'cats',
   data: () => ({
@@ -37,8 +39,10 @@ export default {
           return response.json()
         }).then(function (catsJson) {
           current.cats = catsJson.data
+          saveData(catsJson.data)
         }).catch(() => {
           current.error = 'You appear to be offline, no cats for you...'
+          getData().then(data => { current.cats = data })
         })
     }
   }

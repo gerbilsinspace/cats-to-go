@@ -1,14 +1,17 @@
+const CACHE_NAME = 'cats-to-go-v1';
+
 /** Adds app shell to cache on service worker installation */
 self.addEventListener('install', event => {
   self.skipWaiting();
 
   event.waitUntil(
-    caches.open('cats-to-go-v1').then(cache =>
+    caches.open(CACHE_NAME).then(cache =>
       cache.addAll([
         '.',
         'app.css',
         'app.js',
-        'vendor.js'
+        'vendor.js',
+        'static/manifest.json'
       ])
     )
   )
