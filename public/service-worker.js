@@ -28,6 +28,7 @@ self.addEventListener('fetch', event =>
 
 /** Respond to push events */
 self.addEventListener('push', event => {
+  console.log(event);
   const options = {
     body: 'The talk is almost over!',
     vibrate: [100, 50, 100],
