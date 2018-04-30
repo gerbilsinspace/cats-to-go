@@ -84,7 +84,7 @@ export default {
   .cat-container {
     margin: 0 auto;
     width: 100%;
-    max-width: 1290px;
+    max-width: 1320px;
   }
 
   .error-card {

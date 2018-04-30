@@ -1,6 +1,5 @@
 import idb from 'idb';
 
-
 export function createDB() {
   if (!('indexedDB' in window)) return;
 
