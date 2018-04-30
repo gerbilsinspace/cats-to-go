@@ -28,9 +28,11 @@ self.addEventListener('fetch', event =>
 
 /** Respond to push events */
 self.addEventListener('push', event => {
-  console.log(event);
+  console.log(`[Push message recieved]: ${event.data.text()}`);
+
   const options = {
-    body: 'The talk is almost over!',
+    body: event.data.text(),
+    icon: 'static/icons/64.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
@@ -39,16 +41,16 @@ self.addEventListener('push', event => {
     actions: [
       {
         action: 'explore',
-        title: 'Do something now'
+        title: 'Action'
       },
       {
         action: 'close',
-        title: 'Close the notification'
+        title: 'Close'
       },
     ]
   };
 
   event.waitUntil(
-    self.registration.showNotification('Lightning Talk', options)
+    self.registration.showNotification('Cats To Go', options)
   );
 });
