@@ -1,15 +1,14 @@
 <template>
   <div class='cat-container'>
-    <md-card v-for="cat in cats" :key="cat.id" v-if='cat.images.original.url'>
+    <md-card v-for="cat in cats" :key="cat.id" v-if='cat.images.fixed_height.url'>
       <md-card-media-cover md-solid>
         <md-card-media>
-          <img :src="cat.images.fixed_width.url" :alt="cat.title">
+          <img :src="cat.images.fixed_height.url" :alt="cat.title">
         </md-card-media>
 
-
         <md-card-area>
-          <md-card-header style="min-height: 50px">
-            <span class="md-title">{{ cat.title }}</span>
+          <md-card-header>
+            <span>{{ cat.title.replace(' GIF', '') }}</span>
           </md-card-header>
         </md-card-area>
       </md-card-media-cover>
@@ -45,7 +44,29 @@ export default {
 <style>
   .cat-container {
     margin: 0 auto;
-    width: 80%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 1320px;
+  }
+
+  .error-card {
+    width: 100%;
+  }
+
+  .md-card {
+    float: left;
+    margin: 0 0 2em 0;
+  }
+
+  .md-card-header {
+    padding: 0.5em 1em;
+  }
+
+  .md-card-header span {
+    font-size: 1.2em;
+    margin: 8px 0 0 0;
+  }
+
+  .md-card-media-cover {
+    overflow: hidden;
   }
 </style>
