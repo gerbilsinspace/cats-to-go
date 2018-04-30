@@ -69,4 +69,8 @@ export default {
     font-size: 1.2em;
     margin: 8px 0 0 0;
   }
+
+  .md-card-media-cover {
+    overflow: hidden;
+  }
 </style>
