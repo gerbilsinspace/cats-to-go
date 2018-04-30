@@ -95,4 +95,8 @@ export default {
     float: left;
     margin: 0 0 2em 0;
   }
+
+  .md-card-media-cover {
+    overflow: hidden;
+  }
 </style>
