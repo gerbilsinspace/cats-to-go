@@ -28,16 +28,10 @@ self.addEventListener('fetch', event =>
 
 /** Respond to push events */
 self.addEventListener('push', event => {
-  console.log(`[Push message recieved]: ${event.data.text()}`);
-
   const options = {
-    body: event.data.text(),
+    body: 'Something happened!',
     icon: 'static/icons/64.png',
     vibrate: [100, 50, 100],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: '-push-notification'
-    },
     actions: [
       {
         action: 'explore',
